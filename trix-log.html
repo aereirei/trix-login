@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIX Login / Sign Up</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+    body {
+      height:100vh;
+      background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #2b2b2b, #0d0d0d);
+      background-size:400% 400%;
+      animation: moveBg 12s ease infinite;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    @keyframes moveBg {0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;}}
+
+    .box {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 360px;
+      text-align:center;
+      color:#fff;
+      box-shadow:0 0 30px rgba(0,0,0,0.4);
+    }
+
+    h1{font-size:2rem; font-weight:700; margin-bottom:10px; letter-spacing:2px;}
+    p{font-size:0.9rem; margin-bottom:30px; color:#cfcfcf;}
+    input, select{
+      width:100%; padding:10px 14px; margin:8px 0 16px; border:none; border-radius:10px; outline:none; font-size:0.95rem;
+    }
+    input::placeholder{color:#999;}
+    button{
+      width:100%; padding:12px; border:none; border-radius:10px; color:white; font-size:1rem; font-weight:600; cursor:pointer; transition:0.3s; margin-bottom:10px;
+    }
+    .login-btn{background-color:#b66a50;}
+    .login-btn:hover{background-color:#a65c45; transform:translateY(-2px);}
+    .signup-btn{background-color:#555;}
+    .signup-btn:hover{background-color:#777; transform:translateY(-2px);}
+    .toggle-text{font-size:0.85rem; color:#cfcfcf; cursor:pointer; margin-top:10px;}
+    .toggle-text span{color:#ffeaa7; font-weight:600;}
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h1>TRIX</h1>
+      <p>Sign in to post and explore articles</p>
+      <form>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="login-btn">Log In</button>
+      </form>
+      <div class="toggle-text">Don't have an account? <span onclick="showSignup()">Sign Up</span></div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signupForm" style="display:none;">
+      <h1>TRIX Sign Up</h1>
+      <p>Create your account to post articles</p>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <select required>
+          <option value="" disabled selected>Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="date" placeholder="Birthday" required>
+        <button type="submit" class="login-btn">Sign Up</button>
+      </form>
+      <div class="toggle-text">Already have an account? <span onclick="showLogin()">Log In</span></div>
+    </div>
+  </div>
+
+  <script>
+    function showSignup(){
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('signupForm').style.display = 'block';
+    }
+    function showLogin(){
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
